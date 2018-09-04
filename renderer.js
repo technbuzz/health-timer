@@ -1,5 +1,7 @@
 const timeEl = document.querySelector('time');
 
+
+
 let intervalId;
 function startTimer(duration, display) {
   let timer = duration;
@@ -20,7 +22,7 @@ function startTimer(duration, display) {
   }, 1000);
 }
 
-startTimer(5, timeEl);
+startTimer(5 * 60, timeEl);
 
 function notifyUser(){
   clearInterval(intervalId);
