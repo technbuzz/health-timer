@@ -1,7 +1,18 @@
-const time = document.querySelector('time');
+const timeEl = document.querySelector('time');
 
-const timer = setInterval(updateTime, 1000);
+let intervalId;
+function startTimer(duration, display) {
+  let timer = duration;
+  intervalId = setInterval(() => {
+    --timer;
+    let minutes = parseInt(timer/60,10);
+    let seconds = parseInt(timer%60,10);
 
-function updateTime() {
-  time.innerHTML = Date();
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+    display.textContent = `${minutes}:${seconds}`;
+  }, 1000);
 }
+
+startTimer(250, timeEl)
