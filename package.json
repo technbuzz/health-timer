@@ -4,7 +4,8 @@
   "description": "A health app that monitors how much time a developer spends on his seat and when he neats to leave his chair.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
