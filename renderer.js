@@ -12,7 +12,17 @@ function startTimer(duration, display) {
     seconds = seconds < 10 ? `0${seconds}` : seconds;
 
     display.textContent = `${minutes}:${seconds}`;
+
+    if(minutes ==0 && seconds ==0){
+      notifyUser();
+    }
+
   }, 1000);
 }
 
-startTimer(250, timeEl)
+startTimer(5, timeEl);
+
+function notifyUser(){
+  clearInterval(intervalId);
+  alert('Timer Up')
+}
