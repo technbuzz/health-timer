@@ -55,5 +55,4 @@ function notifyUser() {
   if(!timers.length){
     btn.disabled = null;
   }
-  alert('Timer Up');
 }
