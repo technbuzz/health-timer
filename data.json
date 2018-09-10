@@ -1,0 +1,14 @@
+[
+  {
+    "duration": 22,
+    "message":"Sit"
+  },
+  {
+    "duration": 5,
+    "message":"Stand"
+  },
+  {
+    "duration": 3,
+    "message":"Move Around"
+  }
+]
