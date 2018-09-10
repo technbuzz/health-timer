@@ -37,10 +37,10 @@ function startTimer(duration, display) {
 }
 
 btn.addEventListener('click', () => {
-  timers.forEach((item)=>{
-    startTimer(item.duration * 60, timeEl);
-    msg.textContent = `Now ${item.message} for ${item.duration} minutes.`
-  })
+  if(timers.length){
+    startTimer(timers[0].duration * 60, timeEl);
+    msg.textContent = `Now ${timers[0].message} for ${timers[0].duration} minutes.`
+  }
   // startTimer(1 * 60, timeEl);
   btn.disabled = true;
 });
@@ -48,6 +48,12 @@ btn.addEventListener('click', () => {
 
 function notifyUser() {
   clearInterval(intervalId);
-  btn.disabled = null;
+  timers.shift();
+  console.log(timers);
+  
+
+  if(!timers.length){
+    btn.disabled = null;
+  }
   alert('Timer Up');
 }
