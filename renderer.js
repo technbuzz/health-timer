@@ -1,6 +1,7 @@
 const timeEl = document.querySelector('time');
 const btn = document.querySelector('button');
 const msg = document.querySelector('.message');
+const ding = document.querySelector('audio');
 
 const timers = [
   {
@@ -36,23 +37,28 @@ function startTimer(duration, display) {
   }, 1000);
 }
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', clickHandler);
+
+function clickHandler(){
   if(timers.length){
     startTimer(timers[0].duration * 60, timeEl);
     msg.textContent = `Now ${timers[0].message} for ${timers[0].duration} minutes.`
   }
   // startTimer(1 * 60, timeEl);
   btn.disabled = true;
-});
+}
 
 
 function notifyUser() {
   clearInterval(intervalId);
+  ding.play();
   timers.shift();
   console.log(timers);
   
 
   if(!timers.length){
     btn.disabled = null;
+  } else {
+    clickHandler();
   }
 }
